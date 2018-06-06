@@ -4,7 +4,8 @@ $(document).ready(() => {
   $('.navbar__list-item-link').on('click', function(e) {
 		e.preventDefault();
 
-    resetMobileNav();
+    $('.navbar__toggle').removeClass('navbar__toggle--open');
+    if($('.navbar__toggle').is(':visible')) $('.navbar__list').slideToggle('fast');
 
 		let elem = $(this.hash),
 		elemPos = elem.offset().top - navbarHeight + 1;
@@ -19,16 +20,12 @@ $(document).ready(() => {
     $('.navbar__list').slideToggle('fast');
   });
 
-  const resetMobileNav = () => {
+  const onWindowResize = () => {
     //If desktop, close mobile nav
     if(!$('.navbar__toggle').is(':visible')) {
       $('.navbar__toggle').removeClass('navbar__toggle--open');
       $('.navbar__list').removeAttr('style');
     }
-  };
-
-  const onWindowResize = () => {
-    resetMobileNav();
   };
 
   const onWindowScroll = () => {
