@@ -5,7 +5,7 @@ $(document).ready(() => {
 		e.preventDefault();
 
     $('.navbar__toggle').removeClass('navbar__toggle--open');
-    if($('.navbar__toggle').is(':visible')) $('.navbar__list').slideToggle('fast');
+    if($('.navbar__toggle').is(':visible')) $('.navbar__list').slideUp('fast');
 
 		let elem = $(this.hash),
 		elemPos = elem.offset().top - navbarHeight + 1;
