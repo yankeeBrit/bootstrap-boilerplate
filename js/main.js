@@ -36,7 +36,7 @@ $(document).ready(() => {
           section = $(_this.attr('href'));
 
       if(section.position().top <= scrollPos + navbarHeight && section.position().top + section.outerHeight() > scrollPos + navbarHeight) {
-        $('.navbar__list a').removeClass('navbar__list-item-link--active');
+        $('.navbar__list-item-link').removeClass('navbar__list-item-link--active');
         _this.addClass('navbar__list-item-link--active');
       }else{
         _this.removeClass('navbar__list-item-link--active');
