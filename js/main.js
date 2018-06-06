@@ -5,7 +5,7 @@ $(document).ready(() => {
 		e.preventDefault();
 
     $('.navbar__toggle').removeClass('navbar__toggle--open');
-    if($('.navbar__toggle').is(':visible')) $('.navbar__list').slideUp('fast');
+    $('.navbar__list').removeClass('navbar__list--open');
 
 		let elem = $(this.hash),
 		elemPos = elem.offset().top - navbarHeight + 1;
@@ -17,14 +17,14 @@ $(document).ready(() => {
 
   $('.navbar__toggle').on('click', function(e) {
     $(this).toggleClass('navbar__toggle--open');
-    $('.navbar__list').slideToggle('fast');
+    $('.navbar__list').toggleClass('navbar__list--open');
   });
 
   const onWindowResize = () => {
     //If desktop, close mobile nav
     if(!$('.navbar__toggle').is(':visible')) {
       $('.navbar__toggle').removeClass('navbar__toggle--open');
-      $('.navbar__list').removeAttr('style');
+      $('.navbar__list').removeClass('navbar__list--open');
     }
   };
 
