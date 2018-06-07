@@ -27,26 +27,24 @@ $(document).ready(() => {
       $('.navbar__list').removeClass('navbar__list--open');
     }
   };
+  onWindowResize();
 
   const onWindowScroll = () => {
     let scrollPos = $(window).scrollTop();
 
     $('.navbar__list-item-link').each(function() {
-      let _this = $(this),
-          section = $(_this.attr('href'));
+      let link = $(this),
+          section = $(link.attr('href'));
 
       if(section.position().top <= scrollPos + navbarHeight && section.position().top + section.outerHeight() > scrollPos + navbarHeight) {
         $('.navbar__list-item-link').removeClass('navbar__list-item-link--active');
-        _this.addClass('navbar__list-item-link--active');
+        link.addClass('navbar__list-item-link--active');
       }else{
-        _this.removeClass('navbar__list-item-link--active');
+        link.removeClass('navbar__list-item-link--active');
       }
     });
   };
-
-  onWindowResize();
-  $(window).on('resize', onWindowResize);
-
   onWindowScroll();
-  $(window).on('scroll', onWindowScroll);
+
+  $(window).on('resize', onWindowResize).on('scroll', onWindowScroll);
 });
