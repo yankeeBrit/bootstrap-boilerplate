@@ -7,11 +7,11 @@ $(document).ready(() => {
     $('.navbar__toggle').removeClass('navbar__toggle--open');
     $('.navbar__list').removeClass('navbar__list--open');
 
-		let elem = $(this.hash),
-		elemPos = elem.offset().top - navbarHeight + 1;
+		let section = $(this.hash),
+		    sectionPos = section.offset().top - navbarHeight;
 
     $('html, body').animate({
-      scrollTop: elemPos
+      scrollTop: sectionPos
     }, 500);
 	});
 
